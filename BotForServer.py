@@ -18,7 +18,7 @@ async def on_message(mes):
     while True:
         await asyncio.sleep(600)
         await chal_oc.purge(limit=25)  
-      while True:
+while True:
             m = 0
             of = 0
             members = mes.guild.members
