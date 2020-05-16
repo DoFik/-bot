@@ -16,10 +16,25 @@ async def on_message(mes):
         await client.process_commands(mes)
     while True:
         await asyncio.sleep(600)
-        await chal_oc.purge(limit=25)
-@client.command()
-async def привет(ctx)
-    await ctx.send('как дела')    
+        await chal_oc.purge(limit=25)  
+    while True:
+            m = 0
+            of = 0
+            members = mes.guild.members
+            for i in range(len(members)):
+                if members[i].status == discord.Status.online:
+                    m += 1
+                elif members[i].status == discord.Status.idle:
+                    m += 1
+                elif members[i].status == discord.Status.dnd:
+                    m += 1
+                elif members[i].status == discord.Status.invisible:
+                    m += 1
+                else:
+                    of += 1
+            await asyncio.sleep(10)
+            game = discord.Game(f"?help | Людей online - {m}\n Людей offline - {of}")
+            await client.change_presence(activity=game)        
 @client.command()
 async def пинг(ctx):
     await ctx.send('Понг!')
