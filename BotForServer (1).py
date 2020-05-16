@@ -30,7 +30,7 @@ async def on_message(mes):
                 else:
                     of += 1
             await asyncio.sleep(10)
-            game = discord.Game(f"?help | Людей в сети - {m}\n Людей оффлайн - {of}")
+            game = discord.Game(f"?help | Людей online - {m}\n Людей offline - {of}")
             await client.change_presence(activity=game)
     while True:
         await asyncio.sleep(600)
@@ -41,11 +41,11 @@ async def пинг(ctx):
     await ctx.send('Понг!')
 @client.command()
 async def youtube(ctx):
-    em = discord.Embed(description = "Ютуб канал FaZer STUDIO\n[Do Fik](https://www.youtube.com/channel/UCmYGNJrCHRe-3DKTiVjH4pA)")
+    em = discord.Embed(description = "Ютуб канал Do_Fik'а\n[Do Fik](https://www.youtube.com/channel/UCmYGNJrCHRe-3DKTiVjH4pA)")
     await ctx.send(embed = em)
 @client.command()
 async def twitch(ctx):
-    await ctx.send("Твич канал FaZer STUDIO\nhttps://twitch.tv/do_fik")
+    await ctx.send("Твич канал Do_Fik'а\nhttps://twitch.tv/do_fik")
 @client.event
 async def on_message_delete(message):    
     aut = message.author
