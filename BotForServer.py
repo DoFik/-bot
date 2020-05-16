@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 import asyncio
-
+import os
 client = commands.Bot(command_prefix='?')
 @client.event
 async def on_ready():
@@ -30,7 +30,7 @@ async def on_message(mes):
                 else:
                     of += 1
             await asyncio.sleep(10)
-            game = discord.Game(f"?help | Людей online - {m}\n Людей offline - {of}")
+            game = discord.Game(f"?help | Людей в сети - {m}\n Людей оффлайн - {of}")
             await client.change_presence(activity=game)
     while True:
         await asyncio.sleep(600)
