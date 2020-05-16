@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 import asyncio
-import os
+
 client = commands.Bot(command_prefix='?')
 @client.event
 async def on_ready():
@@ -30,7 +30,7 @@ async def on_message(mes):
                 else:
                     of += 1
             await asyncio.sleep(10)
-            game = discord.Game(f"?help | Людей в сети - {m}\n Людей оффлайн - {of}")
+            game = discord.Game(f"?help | Людей online - {m}\n Людей offline - {of}")
             await client.change_presence(activity=game)
     while True:
         await asyncio.sleep(600)
@@ -39,6 +39,9 @@ async def on_message(mes):
 @client.command()
 async def пинг(ctx):
     await ctx.send('Понг!')
+@client.command()
+async def привет(ctx)
+    await ctx.send('как дела?')
 @client.command()
 async def youtube(ctx):
     em = discord.Embed(description = "Ютуб канал Do_Fik'а\n[Do Fik](https://www.youtube.com/channel/UCmYGNJrCHRe-3DKTiVjH4pA)")
@@ -58,7 +61,7 @@ async def on_message_delete(message):
 async def on_message_edit(before,after):
     chale = before.guild.get_channel(710886653073555517)
     if before.channel.id != 710886653073555517:
-        eme = discord.Embed(description = f"{before.author} изменил сообщение `{before.content}` на `{after.content}`")
+        eme = discord.Embed(description = f"{before.author} заменил сообщение `{before.content}` на `{after.content}`")
         await chale.send(embed = eme)
     else:
         pass
