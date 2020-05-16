@@ -18,7 +18,7 @@ async def on_message(mes):
     while True:
         await asyncio.sleep(600)
         await chal_oc.purge(limit=25)  
-    while True:
+      while True:
             m = 0
             of = 0
             members = mes.guild.members
@@ -34,7 +34,7 @@ async def on_message(mes):
                 else:
                     of += 1
             await asyncio.sleep(10)
-            game = discord.Game(f"?help | Людей online - {m}\n Людей offline - {of}")
+            game = discord.Game(f"?help | Людей в сети - {m}\n Людей оффлайн - {of}")
             await client.change_presence(activity=game)        
 @client.command()
 async def пинг(ctx):
